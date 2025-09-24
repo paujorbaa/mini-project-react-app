@@ -1,25 +1,34 @@
-import React from 'react'
-import information from '../data/information.json'
+import React from "react";
+import information from "../data/information.json";
+import { useState } from "react";
+import ListItem from "./ListItem";
 const ApartmentList = () => {
+  const [infor, setInfor] = useState(information.results);
+  const handleRemoveCard = (id) => {
+    const newList = infor.filter((element) => {
+      if (element.id !== id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    setInfor(newList);
+  };
   return (
     <>
-    {apartmentState.map((eachApartment)=>{
-         <div className='MainContainer'>
-        <h1>ApartmentList</h1>
-        <div className='apartmentCard'>
-            <section>
-            {information.host_identity_verified===true?'✔️':'❌'}
-            </section>
-        </div>
-
-    </div>
-
-    })
-        
-   
-    }
+      <h1>ApartmentList</h1>
+      {infor.map((eachApartment) => {
+        return (
+          <div className="MainContainer" key={eachApartment.id}>
+            <ListItem
+              eachApartment={eachApartment}
+              onRemove={handleRemoveCard}
+            />
+          </div>
+        );
+      })}
     </>
-  )
-}
-
-export default ApartmentList
+  );
+};
+export default ApartmentList;

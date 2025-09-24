@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
+import "../App.css";
 
 function Sidebar() {
   return (
-    <aside>
+    <aside className="sidebar">
+      <h2 className="sidebar-title">Menu</h2>
       <ul>
         <li>
-         <Link to="/about">About</Link>
+          <Link to="/about">About</Link>
         </li>
         <li>
-          <Link to="/home">Home</Link>
-        </li> 
+          <Link to="/">Home</Link>
+        </li>
       </ul>
     </aside>
   );
