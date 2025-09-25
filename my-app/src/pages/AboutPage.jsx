@@ -33,8 +33,8 @@ const AboutPage = () => {
       id: 2,
       name: "Yanqing",
       role: "Fullstack Developer",
-      location: "Barcelona, Spain",
-      bio: "I'm a passionate Fullstack Developer with a focus on creating scalable and user-friendly applications. I love problem-solving, clean code, and bringing ideas to life through technology.",
+      location: "Madrid, Spain",
+      bio: "I'm a Fullstack Developer in training with 10 years of business experience. I focus on building scalable, user-friendly applications and believe that code without real value should not persist.",
       skills: [
         "JavaScript",
         "React",
@@ -52,9 +52,9 @@ const AboutPage = () => {
         "Traveling",
         "Cycling",
       ],
-      email: "paujorba.dev@gmail.com",
-      github: "https://github.com/paujorbaa/",
-      linkedin: "https://www.linkedin.com/in/pau-jorba-5a0259382/",
+      email: "yang.yanqing@tutamail.com",
+      github: "https://github.com/Yang-Yanqing",
+      linkedin: "https://www.linkedin.com/in/yanqing-yang-berlin/",
     },
   ];
 

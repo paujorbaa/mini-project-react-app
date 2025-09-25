@@ -2,6 +2,8 @@ import React from "react";
 import information from "../data/information.json";
 import { useState } from "react";
 import ListItem from "./ListItem";
+import { Link } from "react-router-dom";
+
 const ApartmentList = () => {
   const [infor, setInfor] = useState(information.results);
   const handleRemoveCard = (id) => {

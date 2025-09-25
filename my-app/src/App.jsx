@@ -16,11 +16,11 @@ function App() {
           <Routes>
             <Route path="/" element={<DashboardPage />} />
 
-            <Route path="/id" element={<ItemDetailsPage />} />
+            <Route path="/item/:itemId" element={<ItemDetailsPage />} />
 
             <Route path="/about" element={<AboutPage />} />
 
-            <Route path="/ItemDetails" element={<ItemDetailsPage />}/>
+            {/* <Route path="/ItemDetails" element={<ItemDetailsPage />}/> */}
 
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

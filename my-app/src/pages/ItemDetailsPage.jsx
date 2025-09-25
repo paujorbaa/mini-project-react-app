@@ -3,8 +3,9 @@ import { Link, useParams } from "react-router-dom";
 
 function ItemDetailsPage() {
   const { itemId } = useParams();
-    const item = information.results.find(
-    (entry) => String(entry.id) === String(itemId)
+  const resultList = information.results
+    const item = resultList.find(
+    (entry) => entry.id == itemId
   );
   if (!item) {
     return (
@@ -22,7 +23,7 @@ function ItemDetailsPage() {
       <h1>{item.name}</h1>
 
       <div>
-        <img src={item.picture_url || placeholderImage} alt={item.name} />
+        <img src={item.picture_url} alt={item.name} />
 
         {item.description && <p>{item.description}</p>}
 
@@ -75,5 +76,6 @@ function ItemDetailsPage() {
     </div>
   );
 }
+
 
 export default ItemDetailsPage;
