@@ -1,22 +1,33 @@
-import logo from "./logo.svg";
 import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import ApartmentList from "./components/ApartmentList";
+import DashboardPage from "./pages/DashboardPage";
+import ItemDetailsPage from "./pages/ItemDetailsPage";
+import AboutPage from "./pages/AboutPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import { Routes, Route } from "react-router-dom";
+
 function App() {
   return (
-    <BrowserRouter>
-      <>
-        <div className="App">
-          <header className="App-header"></header>
-          <Navbar />
-          <Sidebar />
-          <Footer />
-          <ApartmentList />
+    <>
+      <div className="App">
+        <header className="App-header"></header>
+        <Navbar />
+        <div className="Pages">
+          <Routes>
+            <Route path="/" element={<DashboardPage />} />
+
+            <Route path="/id" element={<ItemDetailsPage />} />
+
+            <Route path="/about" element={<AboutPage />} />
+
+            <Route path="/ItemDetails" element={<ItemDetailsPage />}/>
+
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
         </div>
-      </>
-    </BrowserRouter>
+        <Footer />
+      </div>
+    </>
   );
 }
 export default App;

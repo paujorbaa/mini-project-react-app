@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../App.css";
+import AboutPage from "../pages/AboutPage";
 
 function Sidebar() {
   return (
@@ -18,3 +19,5 @@ function Sidebar() {
 }
 
 export default Sidebar;
+
+// Should go inside navbar to make the burger menu
