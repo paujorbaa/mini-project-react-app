@@ -1,36 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import information from "../data/information.json";
-import { useState } from "react";
 import ListItem from "./ListItem";
-import { Link } from "react-router-dom";
+import "./ApartmentList.css";
 
 const ApartmentList = () => {
   const [infor, setInfor] = useState(information.results);
-  const handleRemoveCard = (id) => {
-    const newList = infor.filter((element) => {
-      if (element.id !== id) {
-        return true;
-      } else {
-        return false;
-      }
-    });
 
-    setInfor(newList);
+  const handleRemoveCard = (id) => {
+    setInfor((prev) => prev.filter((item) => item.id !== id));
   };
+
   return (
-    <>
-      <h1>ApartmentList</h1>
-      {infor.map((eachApartment) => {
-        return (
-          <div className="MainContainer" key={eachApartment.id}>
-            <ListItem
-              eachApartment={eachApartment}
-              onRemove={handleRemoveCard}
-            />
-          </div>
-        );
-      })}
-    </>
+    <div className="apartmentListContainer">
+      <h1>Apartments</h1>
+      <div className="apartmentGrid">
+        {infor.map((eachApartment) => (
+          <ListItem
+            key={eachApartment.id}
+            eachApartment={eachApartment}
+            onRemove={handleRemoveCard}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
+
 export default ApartmentList;

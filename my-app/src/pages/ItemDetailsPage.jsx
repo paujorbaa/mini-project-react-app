@@ -1,81 +1,88 @@
 import information from "../data/information.json";
 import { Link, useParams } from "react-router-dom";
+import "./ItemDetailsPage.css";
 
 function ItemDetailsPage() {
   const { itemId } = useParams();
-  const resultList = information.results
-    const item = resultList.find(
-    (entry) => entry.id == itemId
-  );
+  const resultList = information.results;
+  const item = resultList.find((entry) => entry.id == itemId);
+
   if (!item) {
     return (
-      <div>
+      <div className="item-not-found">
         <h1>Item not found.</h1>
         <Link to="/">
-          <button>Back</button>
+          <button className="back-btn">Back</button>
         </Link>
       </div>
     );
   }
 
   return (
-    <div>
-      <h1>{item.name}</h1>
+    <div className="listing-page">
+      {/* Hero Section */}
+      <div className="hero">
+        <img src={item.picture_url} alt={item.name} className="hero-image" />
+        <div className="hero-actions">
+          <button className="wishlist-btn">♡</button>
+          <button className="share-btn">⇪</button>
+        </div>
+      </div>
 
-      <div>
-        <img src={item.picture_url} alt={item.name} />
+      {/* Main Listing Content */}
+      <div className="listing-main">
+        {/* LEFT SIDE */}
+        <div className="listing-left">
+          <h1 className="listing-title">{item.name}</h1>
 
-        {item.description && <p>{item.description}</p>}
+          <div className="listing-rating">
+            ⭐ {item.review_scores_rating ?? "New"} · {item.number_of_reviews}{" "}
+            reviews · {item.neighbourhood}
+          </div>
 
-        <div>
-          {item.neighbourhood_overview && (
-            <p>
-              <strong>Neighborhood:</strong> {item.neighbourhood_overview}
-            </p>
-          )}
+          <p className="listing-description">{item.description}</p>
 
-          <p>
-            <strong>Host:</strong> {item.host_name}{" "}
-            {item.host_is_superhost && <span>(Superhost)</span>}
-          </p>
+          {/* Host Info */}
+          <div className="host-section">
+            <img
+              src={item.host_picture_url}
+              alt={item.host_name}
+              className="host-avatar"
+            />
+            <div>
+              <h3>Hosted by {item.host_name}</h3>
+              <p>Joined in {new Date(item.host_since).getFullYear()}</p>
+              {item.host_is_superhost && (
+                <span className="superhost-badge">★ Superhost</span>
+              )}
+            </div>
+          </div>
 
-          {item.host_location && (
-            <p>
-              <strong>Host Location:</strong> {item.host_location}
-            </p>
-          )}
-
-          <p>
-            <strong>Price per Night:</strong> {item.price}
-          </p>
-
-          <p>
-            <strong>Room Type:</strong> {item.room_type}
-          </p>
-
-          <p>
-            <strong>Accommodates:</strong> {item.accommodates} guest(s)
-          </p>
-
-          {item.amenities?.length > 0 && (
-            <p>
-              <strong>Amenities:</strong>{" "}
-              {item.amenities.slice(0, 5).join(", ")}...
-            </p>
-          )}
-
-          <p>
-            <strong>Number of Reviews:</strong> {item.number_of_reviews}
-          </p>
+          {/* Amenities */}
+          <div className="amenities">
+            <h2>What this place offers</h2>
+            <ul>
+              {item.amenities.slice(0, 10).map((amenity) => (
+                <li key={amenity}>{amenity}</li>
+              ))}
+            </ul>
+          </div>
+          <Link to="/">
+            <button className="back-btn">Back</button>
+          </Link>
         </div>
 
-        <Link to="/">
-          <button>Back</button>
-        </Link>
+        {/* RIGHT SIDE */}
+        <div className="listing-right">
+          <div className="booking-box">
+            <p className="price">{item.price || "Contact Host"}</p>
+            <p>{item.minimum_nights} night minimum</p>
+            <button className="book-btn">Check Availability</button>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
-
 
 export default ItemDetailsPage;

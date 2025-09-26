@@ -62,7 +62,7 @@ const AboutPage = () => {
     <div className="container py-5" style={{ maxWidth: 960 }}>
       <h1 className="mb-4 text-center">About this project</h1>
       <p className="lead text-center mb-5">
-        About this project is part of our Web Development Bootcamp. It aims to
+        This project is part of our Web Development Bootcamp. It aims to
         demonstrate our skills in React, Routing, and building user-friendly
         interfaces. An important step toward becoming full-stack engineers –
         let's go!

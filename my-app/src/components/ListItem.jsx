@@ -2,26 +2,43 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ListItem = ({ eachApartment, onRemove }) => {
-  const{ id,name }=eachApartment;
+  const {
+    id,
+    name,
+    picture_url,
+    price,
+    review_scores_rating,
+    number_of_reviews,
+    room_type,
+  } = eachApartment;
+
   return (
     <div className="apartmentCard">
       <Link to={`/item/${id}`}>
-      <section>
-        <h3>{eachApartment.name}</h3>
-        <h5>
-          host_identity_verified:{""}
-          {eachApartment.host_identity_verified === true ? "✔️" : "❌"}
-        </h5>
-      </section>
+        <img
+          src={picture_url || "https://via.placeholder.com/400x300"}
+          alt={name}
+        />
+        <section>
+          <div className="apartmentCardHeader">
+            <h3>{name}</h3>
+            <span className="price">{price}</span>
+          </div>
+
+          <p className="meta">{room_type}</p>
+
+          <p className="reviews">
+            ⭐{" "}
+            {review_scores_rating
+              ? review_scores_rating.toFixed(1)
+              : "No rating"}{" "}
+            · {number_of_reviews} reviews
+          </p>
+        </section>
       </Link>
-      <button
-        onClick={() => {
-          onRemove(eachApartment.id);
-        }}
-      >
-        Delete
-      </button>
+      <button onClick={() => onRemove(id)}>Remove</button>
     </div>
   );
 };
+
 export default ListItem;
