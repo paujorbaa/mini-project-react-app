@@ -18,6 +18,7 @@ const ListItem = ({ eachApartment, onRemove }) => {
         <img
           src={picture_url || "https://via.placeholder.com/400x300"}
           alt={name}
+          loading="lazy"
         />
         <section>
           <div className="apartmentCardHeader">

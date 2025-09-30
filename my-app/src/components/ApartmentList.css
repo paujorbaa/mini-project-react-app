@@ -91,3 +91,27 @@
 .apartmentCard button:hover {
   background-color: #fdecea;
 }
+
+.pagination{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  align-items:center;
+  margin:20px 0 40px;
+}
+
+.page-btn{
+  border:1px solid #e2e8f0;
+  background:#fff;
+  color:#0f172a;
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+.page-btn:hover{ background:#f8fafc; }
+.page-btn:disabled{ opacity:.45; cursor:not-allowed; }
+.page-btn.active{
+  background:#0f172a;
+  color:#fff;
+  border-color:#0f172a;
+}

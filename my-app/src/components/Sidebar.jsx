@@ -13,6 +13,9 @@ function Sidebar() {
         <li>
           <Link to="/">Home</Link>
         </li>
+        <li>
+          <Link to= "/apartmentformpage">Add Your Item</Link>
+        </li>
       </ul>
     </aside>
   );

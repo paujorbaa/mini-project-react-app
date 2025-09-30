@@ -1,11 +1,13 @@
 import ApartmentList from "../components/ApartmentList";
-import ApartmentForm from "../components/ApartmentForm"
 
-function DashboardPage() {
+
+function DashboardPage({ apartment, onRemove }) {
+   console.log("Dashboard apartment length:", apartment?.length);
   return (
     <div>
-      <ApartmentList />;
-      <ApartmentForm />;
+      
+      <ApartmentList apartment={apartment} onRemove={onRemove}/>
+     
     </div>
   );
 }
