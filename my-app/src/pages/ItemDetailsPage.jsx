@@ -20,7 +20,6 @@ function ItemDetailsPage() {
 
   return (
     <div className="listing-page">
-      {/* Hero Section */}
       <div className="hero">
         <img src={item.picture_url} alt={item.name} className="hero-image" />
         <div className="hero-actions">
@@ -29,9 +28,7 @@ function ItemDetailsPage() {
         </div>
       </div>
 
-      {/* Main Listing Content */}
       <div className="listing-main">
-        {/* LEFT SIDE */}
         <div className="listing-left">
           <h1 className="listing-title">{item.name}</h1>
 
@@ -42,7 +39,7 @@ function ItemDetailsPage() {
 
           <p className="listing-description">{item.description}</p>
 
-          {/* Host Info */}
+
           <div className="host-section">
             <img
               src={item.host_picture_url}
@@ -72,7 +69,6 @@ function ItemDetailsPage() {
           </Link>
         </div>
 
-        {/* RIGHT SIDE */}
         <div className="listing-right">
           <div className="booking-box">
             <p className="price">{item.price || "Contact Host"}</p>

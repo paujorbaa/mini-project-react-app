@@ -1,4 +1,6 @@
 import React from "react";
+import defaultProfile from "../assets/defaultprofile.jpg";
+import { Link } from "react-router-dom";
 
 const AboutPage = () => {
   const teamMembers = [
@@ -28,6 +30,7 @@ const AboutPage = () => {
       email: "paujorba.dev@gmail.com",
       github: "https://github.com/paujorbaa/",
       linkedin: "https://www.linkedin.com/in/pau-jorba-5a0259382/",
+      image: defaultProfile,
     },
     {
       id: 2,
@@ -55,6 +58,7 @@ const AboutPage = () => {
       email: "yang.yanqing@tutamail.com",
       github: "https://github.com/Yang-Yanqing",
       linkedin: "https://www.linkedin.com/in/yanqing-yang-berlin/",
+      image: defaultProfile,
     },
   ];
 
@@ -81,6 +85,11 @@ const AboutPage = () => {
               boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
             }}
           >
+            <img
+              src={member.image}
+              alt="Picture of the developers"
+              className="dev-image"
+            />
             <h3>{member.name}</h3>
             <p>
               <strong>{member.role}</strong> – {member.location}
@@ -141,6 +150,9 @@ const AboutPage = () => {
           </li>
         ))}
       </ul>
+      <Link to="/">
+        <button className="back-btn">Back</button>
+      </Link>
     </div>
   );
 };

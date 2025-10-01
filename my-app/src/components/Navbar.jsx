@@ -2,6 +2,7 @@ import logo from "../assets/logo.png";
 import "../App.css";
 import { slide as Menu } from "react-burger-menu";
 import Sidebar from "./Sidebar";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -12,12 +13,12 @@ function Navbar() {
 
       <nav>
         <h1 className="app-name">Airbnb Rental</h1>
-        <img src={logo} alt="logo.png" className="logo" />
+        <Link to="/">
+          <img src={logo} alt="logo.png" className="logo" />
+        </Link>
       </nav>
     </div>
   );
 }
 
 export default Navbar;
-
-// <Sidebar /> should be a part of navbar as a burger menu.

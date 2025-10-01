@@ -8,13 +8,14 @@ function Sidebar() {
       <h2 className="sidebar-title">Menu</h2>
       <ul>
         <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to= "/apartmentformpage">Add Your Item</Link>
+          <Link to="/about">About Us</Link>
+        </li>
+
+        <li>
+          <Link to="/apartmentformpage">Add An Item</Link>
         </li>
       </ul>
     </aside>
@@ -22,5 +23,3 @@ function Sidebar() {
 }
 
 export default Sidebar;
-
-// Should go inside navbar to make the burger menu

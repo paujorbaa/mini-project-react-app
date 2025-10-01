@@ -29,6 +29,7 @@
 .sidebar-title {
   font-size: 1.2rem;
   margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 .sidebar ul {
@@ -172,4 +173,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.apt-btn {
+  margin-top: 20px;
+}
+
+.dev-image {
+  width: 360px;
+  height: auto;
+  margin-bottom: 10px;
 }
